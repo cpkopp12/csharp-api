@@ -13,12 +13,16 @@ public class UserControllerEF : ControllerBase //inhereting ControllerBase class
 {
 
     DataContextEF _entityFramework;
+    IUserRepository _userRepository;
 
     IMapper _mapper;
 
-    public UserControllerEF(IConfiguration config)
+    public UserControllerEF(IConfiguration config, IUserRepository userRepository)
     {
         _entityFramework = new DataContextEF(config);
+
+        _userRepository = userRepository;
+
         _mapper = new Mapper(new MapperConfiguration(cfg => {
             cfg.CreateMap<UserToAddDto,User>();
             cfg.CreateMap<UserSalary,UserSalary>();
@@ -72,7 +76,7 @@ public class UserControllerEF : ControllerBase //inhereting ControllerBase class
             userDb.Email = user.Email;
             userDb.Gender = user.Gender;
 
-            if (_entityFramework.SaveChanges() > 0)
+            if (_userRepository.SaveChanges())
             {
                 return Ok();
             }
@@ -89,9 +93,9 @@ public class UserControllerEF : ControllerBase //inhereting ControllerBase class
     {
         User userDb = _mapper.Map<User>(user);
 
-        _entityFramework.Add(userDb);
+        _userRepository.AddEntity<User>(userDb);
 
-        if (_entityFramework.SaveChanges() > 0)
+        if (_userRepository.SaveChanges())
         {
             return Ok();
         }
@@ -111,9 +115,9 @@ public class UserControllerEF : ControllerBase //inhereting ControllerBase class
 
         if (userDb != null)
         {
-            _entityFramework.Users.Remove(userDb);
+            _userRepository.RemoveEntity<User>(userDb);
 
-            if (_entityFramework.SaveChanges() > 0)
+            if (_userRepository.SaveChanges())
             {
                 return Ok();
             }
@@ -136,8 +140,8 @@ public class UserControllerEF : ControllerBase //inhereting ControllerBase class
     [HttpPost("UserSalary")]
     public IActionResult PostUserSalaryEF(UserSalary userSalaryForInsert) 
     {
-        _entityFramework.UserSalary.Add(userSalaryForInsert);
-        if (_entityFramework.SaveChanges() > 0)
+        _userRepository.AddEntity<UserSalary>(userSalaryForInsert);
+        if (_userRepository.SaveChanges())
         {
             return Ok();
         }
@@ -154,7 +158,7 @@ public class UserControllerEF : ControllerBase //inhereting ControllerBase class
         if (userToUpdate != null) {
             _mapper.Map(userForUpdate, userToUpdate);
 
-            if(_entityFramework.SaveChanges() > 0) 
+            if(_userRepository.SaveChanges()) 
             {
                 return Ok();
             }
@@ -173,9 +177,9 @@ public class UserControllerEF : ControllerBase //inhereting ControllerBase class
 
         if (userToDelete != null)
         {
-            _entityFramework.UserSalary.Remove(userToDelete);
+            _userRepository.RemoveEntity<UserSalary>(userToDelete);
 
-            if(_entityFramework.SaveChanges() > 0)
+            if(_userRepository.SaveChanges())
             {
                 return Ok();
             }
@@ -199,9 +203,9 @@ public class UserControllerEF : ControllerBase //inhereting ControllerBase class
     [HttpPost("UserJobInfo")]
     public IActionResult PostUserJobInfoEf(UserJobInfo userJobInfoForInsert)
     {
-        _entityFramework.UserJobInfo.Add(userJobInfoForInsert);
+        _userRepository.AddEntity<UserJobInfo>(userJobInfoForInsert);
 
-        if (_entityFramework.SaveChanges() > 0)
+        if (_userRepository.SaveChanges())
         {
             return Ok();
         }
@@ -221,7 +225,7 @@ public class UserControllerEF : ControllerBase //inhereting ControllerBase class
         {
             _mapper.Map(userJobInfoForUpdate, userToUpdate);
 
-            if (_entityFramework.SaveChanges() > 0)
+            if (_userRepository.SaveChanges())
             {
                 return Ok();
             }
@@ -239,9 +243,9 @@ public class UserControllerEF : ControllerBase //inhereting ControllerBase class
 
         if (userToDelete != null)
         {
-            _entityFramework.UserJobInfo.Remove(userToDelete);
+            _userRepository.RemoveEntity<UserJobInfo>(userToDelete);
 
-            if (_entityFramework.SaveChanges() > 0)
+            if (_userRepository.SaveChanges())
             {
                 return Ok();
             }
