@@ -71,3 +71,4 @@
 /Users/cameronkopp/Desktop/udemy/csharp/csharp-api/DotnetAPI/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
 /Users/cameronkopp/Desktop/udemy/csharp/csharp-api/DotnetAPI/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
 /Users/cameronkopp/Desktop/udemy/csharp/csharp-api/DotnetAPI/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/cameronkopp/Desktop/udemy/csharp/csharp-api/DotnetAPI/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll

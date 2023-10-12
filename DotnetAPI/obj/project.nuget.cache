@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pH7Zg6gMMnTn7sWNuZ8Ce8Kpe1gz8x5riB9zLG8hKck2XlS4L0a+L6Ap8K1kZKrKNOPPs3lKPUXudGs7ug8z8g==",
+  "dgSpecHash": "mgaFh7CDA0njA6tlmwFfsqz1+FpaNm2i3zsmaYL2OivOYzbmi3kmgASzxd4wBTmueVKtMeXuYoZHqxWjy52nhw==",
   "success": true,
   "projectFilePath": "/Users/cameronkopp/Desktop/udemy/csharp/csharp-api/DotnetAPI/DotnetAPI.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/Users/cameronkopp/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/cameronkopp/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
     "/Users/cameronkopp/.nuget/packages/dapper/2.0.151/dapper.2.0.151.nupkg.sha512",
+    "/Users/cameronkopp/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.12/microsoft.aspnetcore.authentication.jwtbearer.7.0.12.nupkg.sha512",
     "/Users/cameronkopp/.nuget/packages/microsoft.aspnetcore.openapi/7.0.7/microsoft.aspnetcore.openapi.7.0.7.nupkg.sha512",
     "/Users/cameronkopp/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/cameronkopp/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
