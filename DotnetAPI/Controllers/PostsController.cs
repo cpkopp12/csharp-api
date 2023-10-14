@@ -32,7 +32,7 @@ namespace DotnetAPI.Controllers
         }
 
         [HttpGet("PostSingle/{postId}")]
-        public IEnumerable<Post> GetPostSingle(int postId)
+        public Post GetPostSingle(int postId)
         {
             string sql = @"SELECT [PostId],
                     [UserId],
@@ -43,7 +43,7 @@ namespace DotnetAPI.Controllers
                 FROM TutorialAppSchema.Posts
                     WHERE PostId = " + postId.ToString();
             
-            return _dapper.LoadData<Post>(sql);
+            return _dapper.LoadDataSingle<Post>(sql);
         }
 
         [HttpGet("PostsByUser/{userId}")]
@@ -123,8 +123,9 @@ namespace DotnetAPI.Controllers
         [HttpDelete("Post/{postId}")]
         public IActionResult DeletePost(int postId)
         {
-            string sql = @"DELETE FROM TutotrialAppSchema.Posts 
-                WHERE PostId = " + postId.ToString();
+            string sql = @"DELETE FROM TutorialAppSchema.Posts 
+                WHERE PostId = " + postId.ToString()
+                + " AND UserId = " + this.User.FindFirst("userId")?.Value; 
             
             if(_dapper.ExecuteSql(sql))
             {
