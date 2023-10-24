@@ -53,4 +53,5 @@ BEGIN
         ) AS AvgSalary */
         WHERE Users.UserId = ISNULL(@UserId, Users.UserId)
             AND ISNULL(Users.Active, 0) = COALESCE(@Active, Users.Active, 0)
+    ORDER BY Users.UserId
 END
