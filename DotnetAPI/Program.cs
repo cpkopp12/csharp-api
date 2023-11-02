@@ -31,8 +31,6 @@ builder.Services.AddCors((options) =>
             });
     });
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-
 string? tokenKeyString = builder.Configuration.GetSection("AppSettings:TokenKey").Value;
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
