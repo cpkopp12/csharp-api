@@ -16,7 +16,7 @@ An API designed using .NET core 7.0, dapper, and Microsoft Azure SQL. For authen
 
 ## Usage
 
-Most of the endpoints require a jwt token for authorization, so the api is best tested using a postman or insomnia-like software. After registering as a user and loging in, use the bearer token as an authorization for the availble endpoints. <br/>
+Most of the endpoints require a jwt token for authorization, so the api is best tested using a postman or insomnia-like software. After registering as a user and logging in, use the bearer token as an authorization for the available endpoints. <br/>
 
 POST	/Auth/Register	<br/>
 PUT		/Auth/ResetPassword	<br/>
